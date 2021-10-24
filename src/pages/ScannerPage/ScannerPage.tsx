@@ -33,7 +33,7 @@ function ScannerPage() {
   return <div style={{ marginTop: 120 }}>This is scanner page
     <div style={{ marginTop: 60, marginBottom: 60 }}><input type="file" onChange={el => onFileChange(el)} /></div>
     <div><button color="primary" onClick={() => submitForm()}>Upload Single</button></div>
-    {fruit && shelf_life && (<div>Your result is {fruit} at {shelf_life} % freshness</div>)}
+    {fruit && shelf_life && (<div>Your result is {fruit} at {shelf_life} freshness</div>)}
   </div>
 }
 
