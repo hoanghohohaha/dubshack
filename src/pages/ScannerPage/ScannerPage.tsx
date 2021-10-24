@@ -2,7 +2,7 @@ import { margin } from '@mui/system';
 import React, { useState } from 'react';
 import withLayout from '../../layout/withLayout';
 
-function ScannerPage(){
+function ScannerPage() {
   const [file, setFile] = useState<any>();
   const [fruit, setFruit] = useState<any>();
   const [shelf_life, setShelfLife] = useState<any>();
@@ -16,7 +16,7 @@ function ScannerPage(){
     formData.append('imgF', file);
 
     try {
-      const response = await fetch('http://localhost:1104/imgFile', {method: 'POST', body: formData});
+      const response = await fetch('http://localhost:1104/imgFile', { method: 'POST', body: formData });
       if (!response.ok) {
         throw new Error(response.statusText)
       }
@@ -30,9 +30,10 @@ function ScannerPage(){
     }
   }
 
-  return<div style={{marginTop:120}}>This is scanner page
-    <div style={{marginTop:60, marginBottom:60}}><input type="file" onChange={el => onFileChange(el)}/></div>
+  return <div style={{ marginTop: 120 }}>This is scanner page
+    <div style={{ marginTop: 60, marginBottom: 60 }}><input type="file" onChange={el => onFileChange(el)} /></div>
     <div><button color="primary" onClick={() => submitForm()}>Upload Single</button></div>
+    {fruit && shelf_life && (<div>Your result is {fruit} at {shelf_life} % freshness</div>)}
   </div>
 }
 
