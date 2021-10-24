@@ -25,6 +25,7 @@ function LoginPage() {
     axios.post<Itoken>(authServer + "/token", input)
       .then(res => {
         localStorage.setItem("access_token", res.data.access_token);
+        router.go(0);
         router.push("/dashboard")
       }).catch(e => console.log(e))
   }
