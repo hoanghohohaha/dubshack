@@ -7,6 +7,7 @@ import HomePage from "./pages/Homepage/Homepage";
 import AboutPage from "./pages/Aboutpage/Aboutpage";
 import LoginPage from "./pages/Loginpage/LoginPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
+import ScannerPage from "./pages/ScannerPage/ScannerPage";
 
 
 
@@ -31,6 +32,7 @@ function App() {
               <Route exact path="/about" component={AboutPage} />
               <Route exact path='/login' render={() => (isLogin ? <Redirect to="/dashboard" /> : <LoginPage />)} />
               <Route exact path='/signup' render={() => (isLogin ? <Redirect to="/dashboard" /> : <SignupPage />)} />
+              <Route exact path="/scanner" component={ScannerPage} />
             </Switch>
           </Router>
         </div>
