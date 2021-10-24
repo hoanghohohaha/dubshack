@@ -1,12 +1,13 @@
 import { AppBar, Avatar, Button, Container, Grid, Link, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
 import BrandName from '../components/Homepage/utils/BrandName';
 import Logo from '../static/logo.png';
 
 export default function Navbar() {
   const [isLogin, setIsLogin] = useState(false);
   const router = useHistory();
+  const location = useLocation();
 
   useEffect(() => {
     const access_token = localStorage.getItem("access_token");
@@ -46,7 +47,7 @@ export default function Navbar() {
               <Grid container>
                 <Grid item>
                   <Button variant='text'>
-                    <Typography>What we do</Typography>
+                    <Typography>Trader Platform</Typography>
                   </Button>
                 </Grid>
                 <Grid item>
@@ -55,14 +56,21 @@ export default function Navbar() {
                   </Button>
                 </Grid>
                 <Grid item style={{ display: isLogin ? "" : "none" }}>
-                  <Button variant='text' href='dashboard'>
+                  <Button variant='text' href='/dashboard'>
                     <Typography>Dashboard</Typography>
                   </Button>
                 </Grid>
                 <Grid item >
                   <Button variant='contained' onClick={() => {
                     if (isLogin) {
-                      localStorage.clear(); router.push("/")
+                      localStorage.clear();
+                      if (location.pathname === "/") {
+                        router.go(0);
+                      }
+                      else {
+                        router.push("/");
+                        router.go(0);
+                      }
                     }
                     else {
                       router.push("/login")

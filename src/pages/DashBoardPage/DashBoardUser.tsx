@@ -1,8 +1,5 @@
 import React from 'react'
-import withLayout from '../../layout/withLayout'
 
-function DashBoardUser() {
+export default function DashBoardUser() {
   return <>this is user</>
 }
-
-export default withLayout(DashBoardUser)
