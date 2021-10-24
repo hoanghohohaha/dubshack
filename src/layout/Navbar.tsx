@@ -46,12 +46,12 @@ export default function Navbar() {
             <Grid item>
               <Grid container>
                 <Grid item>
-                  <Button variant='text'>
+                  <Button variant='text' href='/trade'>
                     <Typography>Trader Platform</Typography>
                   </Button>
                 </Grid>
                 <Grid item>
-                  <Button variant='text' href='about'>
+                  <Button variant='text' href='/about'>
                     <Typography>Our solution</Typography>
                   </Button>
                 </Grid>

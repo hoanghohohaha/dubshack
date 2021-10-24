@@ -11,8 +11,7 @@ function DashBoardPage() {
   const [isLogin, setIsLogin] = useState(false);
   const [accessToken, setAccessToken] = useState("");
   const [isUser, setIsUser] = useState(true);
-  const router = useHistory();
-  const location = useLocation();
+
 
   interface IUser {
     email: string;
@@ -35,15 +34,18 @@ function DashBoardPage() {
       }
     }).then(res => {
       if (res.data.role === "Saler") {
-        console.log("Saler")
+        console.log("Saler");
+        setIsUser(!isUser)
       }
     })
   }, [accessToken])
 
 
 
-  return (<>
-    {isUser ? <DashBoardUser /> : <DashBoardSaler />}</>)
+  return (
+    <>
+      {isUser ? <DashBoardUser /> : <DashBoardSaler />}
+    </>)
 }
 
 export default withLayout(DashBoardPage)

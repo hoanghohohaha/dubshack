@@ -7,10 +7,6 @@ import HomePage from "./pages/Homepage/Homepage";
 import AboutPage from "./pages/Aboutpage/Aboutpage";
 import LoginPage from "./pages/Loginpage/LoginPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
-import ScannerPage from "./pages/ScannerPage/ScannerPage";
-
-
-
 import DashBoardPage from "./pages/DashBoardPage/DashBoardPage";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 
@@ -34,7 +30,6 @@ function App() {
           <Router>
             <Switch>
               <Route exact path="/" component={HomePage} />
-              <Route exact path="/scanner" component={ScannerPage} />
               <Route path="/about" component={AboutPage} />
               <Route path='/login' render={() => (isLogin ? <Redirect to="/dashboard" /> : <LoginPage />)} />
               <Route path='/signup' render={() => (isLogin ? <Redirect to="/dashboard" /> : <SignupPage />)} />
