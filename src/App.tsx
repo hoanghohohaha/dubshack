@@ -9,6 +9,8 @@ import LoginPage from "./pages/Loginpage/LoginPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import DashBoardPage from "./pages/DashBoardPage/DashBoardPage";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
+import TraderPage from "./pages/TraderPage/TraderPage";
+import ScannerPage from "./pages/ScannerPage/ScannerPage";
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -31,9 +33,11 @@ function App() {
             <Switch>
               <Route exact path="/" component={HomePage} />
               <Route path="/about" component={AboutPage} />
+              <Route path='/scanner' component={ScannerPage} />
               <Route path='/login' render={() => (isLogin ? <Redirect to="/dashboard" /> : <LoginPage />)} />
               <Route path='/signup' render={() => (isLogin ? <Redirect to="/dashboard" /> : <SignupPage />)} />
               {isLogin && <Route path="/dashboard" component={DashBoardPage} />}
+              {isLogin && <Route path="/trade" component={TraderPage} />}
               <Route path='*'>
                 <ErrorPage />
               </Route>
